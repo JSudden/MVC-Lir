@@ -6,3 +6,4 @@
    * Binder värden
    * Returnerar rader och resultat från databasen
    */
+?>
