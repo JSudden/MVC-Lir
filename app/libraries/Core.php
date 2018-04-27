@@ -15,12 +15,12 @@
 
     // Kör test funktion
     public function __construct() {
-        
 
+        
         // Hämta URL 
         $url = $this->getUrl();
         // Stor bokstav först. 
-        $requstedController = uncwords($url[0]);
+        $requstedController = ucwords($url[0]);
 
         // Kolla om kontroller finns
         if(file_exists("../app/controllers/$requstedController.php")) {
@@ -34,7 +34,24 @@
         require_once "../app/controllers/$this->currentController.php";
 
         //instansiera controller
-        $this->currentController = new this->currentController;
+        $this->currentController = new $this->currentController;
+
+        //kolla om det finns en metod med samma namn
+        // Som den metod som efterfrågas i vår ctroller
+        if(isset($url[1])) {
+          if(method_exists($this->currentController, $url[1])) {
+            $this->currentMethod = $url[1];
+
+            //Ta bort metoden ur array
+            unset($url[1]);
+          }
+        }
+
+        //sätt params till dom värden som finns kvar i $url arrayen
+        $this->params = $url ? array_values($url) : [];
+
+        //anropa metoden i controllern med params som argument.
+        call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
     }
 
     // Test funktion för att visa hur det fungerar

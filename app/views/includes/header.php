@@ -10,6 +10,7 @@
   <title><?php echo SITENAME; ?></title>
 </head>
 <body>
-  <?php require APPROOT . '/views/inc/navbar.php'; ?>
+<main>
+  <?php require APPROOT . '\views\includes\navbar.php'; ?>
   <div class="container">
   
