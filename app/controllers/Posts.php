@@ -5,26 +5,36 @@ class posts extends controller {
         $this->postModel = $this->model('post');
   
     }           
-
+    public function index() {
+        $blogposts = $this->postModel->getPosts();
+        print_r($blogposts);
+        die("lol");
+        $data = [
+            "blog" =>  "Add posts",
+            "blogposts" => $blogposts
+        ];
+        $this->view('blogposts/index', $data);
+    }
     public function add() {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
                 'title' => trim($_POST['title']),
-                'content' => trim($_POST['content'])
+                'content' => trim($_POST['content']),
             ];
 
-            if(empty($data['name_err'])) {
-                //validate
-                if($this->postModel->addPost($data)){
+            if(true) {
+            
+                if($this->postModel->addPost($data)){ 
                     
-                }else{
+                } else {
                     die("Something went wrong");
                 }
-            }else{
+            } else {
                 $this->view("posts/add", $data);
             }
-        } else{
+            
+        } else {
             $this->view("posts/add");
         }
     }

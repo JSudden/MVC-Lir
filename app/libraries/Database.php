@@ -57,7 +57,6 @@
         }
        }
        // Bind 
-       die($value);
        $this->stmt->bindValue($param, $value, $type);
      }
      public function execute() {

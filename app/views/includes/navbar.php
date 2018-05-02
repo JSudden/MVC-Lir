@@ -6,10 +6,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="http://localhost/MVC-Lir/public/index.php?url=pages/index">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Create post</a>
+        <a class="nav-link" href="http://localhost/MVC-Lir/public/index.php?url=posts/add">Create post</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Login</a>
