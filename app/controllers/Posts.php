@@ -4,16 +4,25 @@ class posts extends controller {
     public function __construct() {
         $this->postModel = $this->model('post');
   
-    }           
+    }
+    public function readmore($id) {
+        $blogpost = $this->postModel->getPost($id);
+    
+        $data = [
+            "post" => $blogpost         
+        ];
+        
+        $this->view('posts/readmore', $data);
+    }
     public function index() {
         $blogposts = $this->postModel->getPosts();
-        print_r($blogposts);
-        die("lol");
+        //print_r($blogposts);
+        //die("lol");
         $data = [
             "blog" =>  "Add posts",
             "blogposts" => $blogposts
         ];
-        $this->view('blogposts/index', $data);
+        $this->view('posts/index', $data);
     }
     public function add() {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -22,20 +31,23 @@ class posts extends controller {
                 'title' => trim($_POST['title']),
                 'content' => trim($_POST['content']),
             ];
-
-            if(true) {
+            
+            if(!empty($_POST['title']) && !empty($_POST['content'])) {
             
                 if($this->postModel->addPost($data)){ 
-                    
-                } else {
+                    header("location:" . URLROOT3);
+                }  else {
                     die("Something went wrong");
                 }
             } else {
                 $this->view("posts/add", $data);
+                //header("location:posts/index.php");
+                
             }
             
         } else {
             $this->view("posts/add");
+            
         }
     }
 }

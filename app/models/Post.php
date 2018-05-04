@@ -7,9 +7,19 @@
     public function __construct() {
         $this->db = new Database();
     }
-    public function getPost() {
+    public function getPost($id) {
+      $this->db->query('SELECT * FROM blogposts where id = :id');
+      $this->db->bind(':id', $id);
+      return $this->db->single();
+    }
+    public function getPosts() {
       $this->db->query("SELECT * FROM blogposts");
       return $this->db->resultSet();
+    }
+    public function addComment($data){
+      $this->db->query('INSERT INTO comments (name, content) VALUES (:name, :content');
+      $this->db->bind(':name', $data['name']);
+      $this->db->bind(':content', $data['content']);
     }
     public function addPost($data){
 

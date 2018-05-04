@@ -6,10 +6,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="http://localhost/MVC-Lir/public/index.php?url=pages/index">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo URLROOT3; ?>">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost/MVC-Lir/public/index.php?url=posts/add">Create post</a>
+        <a class="nav-link" href="<?php echo URLROOT4; ?>">Create post</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo URLROOT5; ?>">Admin power</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Login</a>

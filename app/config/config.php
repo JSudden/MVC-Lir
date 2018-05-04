@@ -7,6 +7,13 @@
 
     define("URLROOT2", "http://localhost/MVC-Lir/public/index.php?url=");
 
+    define("URLROOT3", "http://localhost/MVC-Lir/public/index.php?url=posts/index");
+
+    define("URLROOT4", "http://localhost/MVC-Lir/public/index.php?url=posts/add");
+    define("URLROOT5", "http://localhost/MVC-Lir/public/index.php?url=admins/index");
+
+    define("URLROOT6", "http://localhost/MVC-Lir/public/index.php?url=admins/delete/");
+
     // Sidans namn
     define("SITENAME", "Legend");
 
