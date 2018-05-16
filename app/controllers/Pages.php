@@ -11,12 +11,24 @@
       ];
       $this->view('pages/index', $data);
     }
-
+    
     public function about() {
       $data = [
         "title" => "About us",
       ];
       $this->view('pages/about', $data);
+    }
+    public function login() {
+      $data = [
+      "title" => "Login",
+      ];
+      $this->view('pages/login', $data);
+    }
+    public function register() {
+      $data = [
+        "title" => "Register",
+      ];
+      $this->view('pages/register', $data);
     }
   }
   ?>

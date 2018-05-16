@@ -2,17 +2,19 @@
 class Admins extends Controller {
     public function __construct() {
         $this->adminModel = $this->model('Admin');
+        $this->postModel = $this->model('post');
       }
       public function index() {
-        $blogposts = $this->adminModel->getPosts();
+        $blogpost = $this->postModel->getPosts();
+    
         $data = [
-            "blog" =>  "Add posts",
-            "blogposts" => $blogposts
+            "post" => $blogpost         
         ];
+        
         $this->view('admins/index', $data);
-      }
+    }
       public function delete($id) {
-          $blogpost = $this->adminModel->deletePosts($id);
+          $blogpost = $this->postModel->deletePosts($id);
           header("location:" . URLROOT3);
       }
 }

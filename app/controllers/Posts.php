@@ -3,12 +3,14 @@ class posts extends controller {
 
     public function __construct() {
         $this->postModel = $this->model('post');
+        $this->commentModel = $this->model('comment');
   
     }
     public function readmore($id) {
         $blogpost = $this->postModel->getPost($id);
-    
+        $comments = $this->commentModel->getComment($id);
         $data = [
+            "comments" => $comments,
             "post" => $blogpost         
         ];
         
@@ -23,7 +25,10 @@ class posts extends controller {
             "blogposts" => $blogposts
         ];
         $this->view('posts/index', $data);
+       
     }
+    
+   
     public function add() {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

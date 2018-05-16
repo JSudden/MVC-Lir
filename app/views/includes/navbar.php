@@ -15,10 +15,10 @@
         <a class="nav-link" href="<?php echo URLROOT5; ?>">Admin power</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
+        <a class="nav-link" href="<?php echo URLROOT2 . "pages/login"?>">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Register</a>
+        <a class="nav-link" href="<?php echo URLROOT2 . "pages/register"?>">Register</a>
       </li>
     </ul>
   </div>
